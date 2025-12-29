@@ -1,0 +1,56 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Environment variables (contains sensitive data)
+.env
+.env.local
+.env.*.local
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+.hypothesis/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Logs
+*.log
+logs/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors
+*.swp
+*.swo
+*~
+.*.swp
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# IDEs (optional - uncomment if needed)
+# .idea/
+# .vscode/
+# *.code-workspace
