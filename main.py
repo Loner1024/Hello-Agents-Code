@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 
 from llm import HelloAgentsLLM
 from ReActAgent import ReActAgent
-from tools import ToolExecutor, search, get_current_time
+from tools import ToolExecutor, get_current_time, search
 
 # 加载 .env 文件中的环境变量
 load_dotenv()
