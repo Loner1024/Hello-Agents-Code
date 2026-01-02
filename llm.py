@@ -45,12 +45,15 @@ class HelloAgentsLLM:
                 messages=messages,
                 temperature=temperature,
                 stream=True,
+                stream_options={"include_usage": True},
             )
 
             # 处理流式响应
             print("✅ 大语言模型响应成功:")
             collected_content = []
             for chunk in response:
+                if not chunk.choices:
+                    continue
                 content = chunk.choices[0].delta.content or ""
                 print(content, end="", flush=True)
                 collected_content.append(content)
