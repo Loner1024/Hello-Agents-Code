@@ -7,7 +7,7 @@ on:
   push:
     branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "*" ]
 
 permissions:
   contents: read
@@ -25,9 +25,9 @@ jobs:
         python-version-file: ".python-version"
     - name: Install uv
       uses: astral-sh/setup-uv@v7
-    - name: Install flake8
+    - name: Install flake8 pytest
       run: |
-        uv tool install flake8
+        uv tool install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
@@ -36,6 +36,8 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Install the project
-      run: uv sync --locked --all-extras --dev
+      run: |
+          rm -rf .venv
+          uv sync --locked --all-extras --dev
     - name: Run tests
       run: uv run pytest
