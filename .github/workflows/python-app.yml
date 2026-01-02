@@ -27,8 +27,8 @@ jobs:
       uses: astral-sh/setup-uv@v7
     - name: Install flake8 pytest
       run: |
-        uv tool install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        uv tool install flake8
+        uv tool install pytest
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
